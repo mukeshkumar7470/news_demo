@@ -18,8 +18,12 @@ class ArticleDetailPage extends StatelessWidget {
         children: [
           Container(
             child: Hero(
-              tag: article.urlToImage!,
-              child: Image.network(article.urlToImage!),
+              tag: article.urlToImage.toString().isEmpty
+                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojwMMYZgtiupM4Vzdb5iBeE4b0Mamf3AgrxQJR19Xa4oIWV5xun9a02Ggyh4bZAurP_c&usqp=CAU"
+                  : article.urlToImage.toString(),
+              child: Image.network(article.urlToImage.toString().isEmpty
+                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojwMMYZgtiupM4Vzdb5iBeE4b0Mamf3AgrxQJR19Xa4oIWV5xun9a02Ggyh4bZAurP_c&usqp=CAU"
+                  : article.urlToImage.toString()),
             ),
           ),
           Expanded(
